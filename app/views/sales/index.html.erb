@@ -10,9 +10,8 @@
   <tbody>
     <% @sales.each do |sale| %>
       <tr>
-        <td><%= link_to 'Show', sale %></td>
-        <td><%= link_to 'Edit', edit_sale_path(sale) %></td>
-        <td><%= link_to 'Destroy', sale, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+        <td><%= sale.item_description %></td>
+        <td><%= link_to 'Remover', sale, method: :delete, data: { confirm: 'Tem certeza?' } %></td>
       </tr>
     <% end %>
   </tbody>
@@ -20,4 +19,4 @@
 
 <br>
 
-<%= link_to 'New Sale', new_sale_path %>
+<%= link_to 'Registrar Vendas', new_sale_path %>

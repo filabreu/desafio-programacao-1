@@ -24,14 +24,16 @@ class SalesController < ApplicationController
   # POST /sales
   # POST /sales.json
   def create
-    @sale = Sale.new(sale_params)
+    if params[:sale] && params[:sale][:file].present?
+      @sales = Sale.parse_file(params[:sale][:file])
+    end
 
     respond_to do |format|
-      if @sale.save
-        format.html { redirect_to @sale, notice: 'Sale was successfully created.' }
+      if @sales
+        format.html { render :index, notice: 'Registros de venda criados com sucesso.' }
         format.json { render :show, status: :created, location: @sale }
       else
-        format.html { render :new }
+        format.html { render :new, alert: 'Não foi possível criar os registros de venda.' }
         format.json { render json: @sale.errors, status: :unprocessable_entity }
       end
     end
