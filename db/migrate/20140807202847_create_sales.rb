@@ -7,6 +7,7 @@ class CreateSales < ActiveRecord::Migration
       t.integer :purchase_count
       t.string :merchant_address
       t.string :merchant_name
+      t.belongs_to :user
 
       t.timestamps
     end
