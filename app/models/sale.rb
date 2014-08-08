@@ -3,6 +3,9 @@ require 'csv'
 class Sale < ActiveRecord::Base
   belongs_to :user
 
+  validate :purchase_count, :presence => true
+  validate :item_price, :presence => true
+
   attr_accessor :file
 
   def self.create_from_file(file, user)
@@ -18,5 +21,9 @@ class Sale < ActiveRecord::Base
     data.map do |sale_data|
       headers.inject({}) { |hash, header| hash[header] = sale_data[headers.index(header)]; hash }
     end
+  end
+
+  def total_sum
+    purchase_count * self.item_price
   end
 end
