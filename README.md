@@ -1,4 +1,69 @@
 # Desafio de programação 1
+
+Desafio realizado por Filipe Abreu, para processo seletivo na Tax Web.
+
+# Requisitos
+
+Ruby 2.0 ou superior
+
+Rubygems
+
+SQLite 3.0 ou superior
+
+
+# Instalação
+
+Tendo instalado os requisitos acima, instalar as gems necessárias.
+
+Para realizar isso, na raiz da aplicação rodar o comando
+
+    bundle install
+
+Após a instalação de todas as gems concluir com sucesso, criar o banco de dados com o comando:
+
+    bundle exec rake db:create
+
+Com o banco de dados SQLite criado, rodar as migrações para criar as tabelas no banco, com o comando:
+
+    bundle exec rake db:migrate
+
+Após o banco de dados e as tabelas estarem criadas, já podemos rodar a aplicação, com o comando:
+
+    rails s
+
+Acesse a aplicação em seu navegador web de preferência no endereço:
+
+[http://localhost:3000/](http://localhost:3000/)
+
+# Primeira ação
+
+Realize um cadastro na aplicação clicando no botão __Registre-me__
+
+Complete o formulário com um endereço de e-mail válido (este será o seu login na aplicação) e uma senha,
+repetindo esta senha no campo de confirmação de senha.
+
+Clique no botão __Registre-me__ para concluir o registro.
+
+Você será redirecionado para a página de Registro de Vendas
+
+# Registrando vendas
+
+Na página de Registro de Vendas, clique no botão para selecionar um arquivo.
+
+Escolha o arquivo __example_input.tab__ localizado na raiz da pasta da aplicação,
+ou algum outro arquivo TSV com o mesmo formato que o __example_input.tab__.
+
+Clique no botão __Registrar vendas__ para concluir o registro de vendas com este arquivo.
+
+Você será redirecionado para a página com o resumo do registro de vendas realizado.
+
+Clique no botão __Ver todas as suas vendas registradas__ para ver outras vendas já registradas.
+
+Clique no botão __Registrar vendas__ para registrar mais vendas através de arquivos TSV.
+
+- - -
+
+# Desafio de programação 1
 A idéia deste desafio é nos permitir avaliar melhor as habilidades de candidatos à vagas de programador, de vários níveis.
 
 Este desafio deve ser feito por você em sua casa. Gaste o tempo que você quiser, porém normalmente você não deve precisar de mais do que algumas horas.
