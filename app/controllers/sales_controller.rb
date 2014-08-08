@@ -25,7 +25,7 @@ class SalesController < ApplicationController
   # POST /sales.json
   def create
     if params[:sale] && params[:sale][:file].present?
-      @sales = Sale.parse_file(params[:sale][:file])
+      @sales = Sale.create_from_file(params[:sale][:file].tempfile, current_user)
     end
 
     respond_to do |format|
