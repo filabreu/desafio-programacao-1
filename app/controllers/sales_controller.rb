@@ -1,6 +1,6 @@
 class SalesController < ApplicationController
   before_action :authenticate_user!
-  
+
   before_action :set_sale, only: [:show, :edit, :update, :destroy]
 
   # GET /sales
@@ -26,6 +26,7 @@ class SalesController < ApplicationController
   # POST /sales
   # POST /sales.json
   def create
+    @sale = Sale.new
     if params[:sale] && params[:sale][:file].present?
       @sales = Sale.create_from_file(params[:sale][:file].tempfile, current_user)
     end
@@ -33,10 +34,8 @@ class SalesController < ApplicationController
     respond_to do |format|
       if @sales
         format.html { render :index, notice: 'Registros de venda criados com sucesso.' }
-        format.json { render :show, status: :created, location: @sale }
       else
         format.html { render :new, alert: 'Não foi possível criar os registros de venda.' }
-        format.json { render json: @sale.errors, status: :unprocessable_entity }
       end
     end
   end
